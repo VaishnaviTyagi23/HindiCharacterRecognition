@@ -1,3 +1,5 @@
+!pip install --upgrade tensorflow
+pip install --upgrade streamlit
 import streamlit as st
 import tensorflow as tf
 import numpy as np from PIL 
