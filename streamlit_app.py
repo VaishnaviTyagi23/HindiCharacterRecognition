@@ -7,7 +7,7 @@ st.set_page_config(
 )
 
 # Set the background image
-background_image = Image.open("hdbd(1).png")
+background_image = Image.open("hdbd (1).png")
 background_image = background_image.resize((1300, 730))
 
 # Set the page to be transparent
