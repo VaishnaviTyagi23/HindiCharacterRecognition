@@ -1,16 +1,8 @@
 import streamlit as st
 import base64
 import matplotlib.pyplot as plt
-import tensorflow as tf
 import plotly.graph_objects as go
-
-# Function to load and preprocess the image
-def load_and_prep(file):
-    # Your image preprocessing code here (not provided in your snippet)
-
-# Function to get the top n predictions
-def get_n_predictions(pred_prob, n):
-    # Your code for getting top n predictions here (not provided in your snippet)
+import tensorflow as tf
 
 # Set the page title and icon
 st.set_page_config(
@@ -24,7 +16,7 @@ with open("hdbd (1).jpg", "rb") as file:
 
 # Set the background image
 st.markdown(
-    f"""
+  f"""
     <style>
     body {{
         background-image: url("data:image/png;base64,{base64.b64encode(bg_img).decode()}");
@@ -68,12 +60,4 @@ if file is not None:
     if st.button("Predict"):
         st.header(f"Top {n} Prediction for given image")
         fig = go.Figure()
-        fig.add_trace(go.Bar(
-            x=confidence[::-1],
-            y=class_name[::-1],
-            orientation='h'))
-        fig.update_layout(height=500, width=900,
-                          xaxis_title='Probability', yaxis_title=f'Top {n} Class Name')
-        st.plotly_chart(fig, use_container_width=True)
-
-        st.success(f"The image is classified as '{class_name[0]}' with {confidence[0] * 100:.1f}% probability")
+        fig.add_trace(
