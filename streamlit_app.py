@@ -8,7 +8,7 @@ st.set_page_config(
 )
 
 # Load the background image
-with open("hdbd (1).png", "rb") as file:
+with open("hdbd (1).jpg", "rb") as file:
     bg_img = file.read()
 
 # Set the background image
