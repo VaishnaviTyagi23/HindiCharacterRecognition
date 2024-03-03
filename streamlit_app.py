@@ -1,7 +1,7 @@
 import streamlit as st
 
 # Set background image
-background_image = '.jpg'
+background_image = 'hdbd (1).jpg'
 main_background = f'url("{background_image}")'
 st.markdown(
     f"""
