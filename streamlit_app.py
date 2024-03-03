@@ -6,22 +6,7 @@ st.set_page_config(
     page_title="My Machine Learning App",
     page_icon="🔎"
 )
-# Load the background image
-with open("hdbd (1).png", "rb") as file:
-    bg_img = file.read()
 
-# Set the background image
-st.markdown(
-    f"""
-    <style>
-    body {{
-        background-image: url("data:image/png;base64,{base64.b64encode(bg_img).decode()}");
-        background-size: cover;
-    }}
-    </style>
-    """,
-    unsafe_allow_html=True,
-)
 
 # Add a title and description to the app
 st.title("My Machine Learning App")
