@@ -16,13 +16,10 @@ st.markdown(
   f"""
     <style>
     body {{
-        background-image: url("data:image/png;base64,{base64.b64encode(bg_img).decode()}");
+        background-image: url("data:image/jpeg;base64,{base64.b64encode(bg_img).decode()}");
         background-attachment: fixed;
         background-repeat: no-repeat;
         background-size: cover;
-        -webkit-background-size: cover;
-        -moz-background-size: cover;
-        -o-background-size: cover;
     }}
     </style>
     """,
