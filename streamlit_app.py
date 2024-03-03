@@ -1,30 +1,28 @@
 import streamlit as st
+import base64
 
 # Set the page title and icon
 st.set_page_config(
     page_title="My Machine Learning App",
     page_icon="🔎"
 )
+# Load the background image
+with open("hdbd (1).png", "rb") as file:
+    bg_img = file.read()
 
 # Set the background image
-background_image = Image.open("hdbd (1).png")
-background_image = background_image.resize((1300, 730))
-
-# Set the page to be transparent
 st.markdown(
-    """
+    f"""
     <style>
-    body {
-        background-image: url("data:image/jpg;base64,{}");
+    body {{
+        background-image: url("data:image/png;base64,{base64.b64encode(bg_img).decode()}");
         background-size: cover;
-        background-position: center;
-        background-attachment: fixed;
-    }
+    }}
     </style>
-    """
-    .format(background_image.tobytes().decode()),
+    """,
     unsafe_allow_html=True,
 )
+
 # Add a title and description to the app
 st.title("My Machine Learning App")
 st.subheader("This app uses machine learning to classify images")
