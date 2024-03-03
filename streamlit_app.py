@@ -1,63 +1,30 @@
 import streamlit as st
-import base64
-import matplotlib.pyplot as plt
-import plotly.graph_objects as go
-import tensorflow as tf
 
-# Set the page title and icon
-st.set_page_config(
-    page_title="My Machine Learning App",
-    page_icon="🔎"
-)
-
-# Load the background image
-with open("hdbd (1).jpg", "rb") as file:
-    bg_img = file.read()
-
-# Set the background image
+# Set background image
+background_image = 'x.jpg'
+main_background = f'url("{background_image}")'
 st.markdown(
-  f"""
+    f"""
     <style>
     body {{
-        background-image: url("data:image/png;base64,{base64.b64encode(bg_img).decode()}");
-        background-attachment: fixed;
-        background-repeat: no-repeat;
+        background-image: {main_background};
         background-size: cover;
-        -webkit-background-size: cover;
-        -moz-background-size: cover;
-        -o-background-size: cover;
     }}
     </style>
     """,
-    unsafe_allow_html=True,
+    unsafe_allow_html=True
 )
 
-# Add a title and description to the app
-st.title("My Machine Learning App")
-st.subheader("This app uses machine learning to classify images")
+# Display input image
+image1 = st.file_uploader("Upload Image 1", type="jpg")
+if image1 is not None:
+    st.image(image1, caption="Input Image 1")
 
-# Add a file uploader to upload an image
-file = st.file_uploader("Upload an image", type=["jpg", "jpeg", "png"])
+# Display output image
+image2 = st.image(None, caption="Output Image 2")
 
-# Check if an image was uploaded
-if file is not None:
-    # Load and preprocess the image
-    img = load_and_prep(file)
-
-    # Display the uploaded image
-    fig, ax = plt.subplots()
-    ax.imshow(img.numpy().astype('uint8'))
-    ax.axis(False)
-    st.pyplot(fig)
-
-    # Make a prediction on the image
-    pred_prob = model.predict(tf.expand_dims(img, axis=0))
-
-    # Display the top n predictions
-    n = st.slider('n', min_value=1, max_value=5, value=3, step=1)
-    class_name, confidence = get_n_predictions(pred_prob, n)
-
-    if st.button("Predict"):
-        st.header(f"Top {n} Prediction for given image")
-        fig = go.Figure()
-        fig.add_trace(
+# Add machine learning model and prediction code here
+# For example:
+# model = load_model('your_model.h5')
+# prediction = model.predict(process_image(image1))
+# image2 = display_image(prediction)
